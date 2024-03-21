@@ -1,0 +1,14 @@
+<div>
+    Workspace works
+    <div>
+        <app-habit *ngFor="let habit of habits" [habit]="habit"></app-habit>
+        
+    </div>
+    <div>
+        <p>Nouvelle habitude</p>
+        <form>
+            <input type="text" placeholder="Nom de l'habitude">
+            <button class="primary" type="button">Créer</button>
+        </form>
+    </div>
+</div>
