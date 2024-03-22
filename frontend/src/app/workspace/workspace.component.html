@@ -1,14 +1,29 @@
 <div>
-    Workspace works
-    <div>
-        <app-habit *ngFor="let habit of habits" [habit]="habit"></app-habit>
-        
+    <div class="flex justify-center gap-5 mt-10 text-3xl">
+        <p class="">TITRE DU WORKSPACE</p>
+        <select name="" id="">
+            <option value=""></option>
+            <option *ngFor="let workspace of workspaces">{{ workspace.name }}</option>
+        </select>
     </div>
-    <div>
+    <a [routerLink]="['/habits/create']">
+        <div class="flex gap-10 m-10">
+            <app-habit *ngFor="let habit of habits" [habit]="habit"></app-habit>
+            <div class="border">
+                <div>
+                    <img src="/assets/plus.svg" alt="" class="w-[15rem] border rounded-full p-10">
+                </div>
+                <p class="text-center mt-2 text-xl uppercase">AJOUTER UNE HABITUDE</p>
+            </div>
+        </div>
+    </a>  
+
+    <div class="mt-10">
         <p>Nouvelle habitude</p>
         <form>
             <input type="text" placeholder="Nom de l'habitude">
             <button class="primary" type="button">Créer</button>
         </form>
     </div>
+    
 </div>
