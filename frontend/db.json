@@ -1,0 +1,24 @@
+{
+  "habits": [
+    {
+      "id":1,
+      "title": "Drink Water"
+    },
+    {
+      "id":2,
+      "title": "Read"
+    },
+    {
+      "id":3,
+      "title": "Exercise"
+    },
+    {
+      "id":4,
+      "title": "Meditate"
+    },
+    {
+      "id":5,
+      "title": "Sleep"
+    }
+  ]
+}

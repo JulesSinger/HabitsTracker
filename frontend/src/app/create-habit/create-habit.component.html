@@ -1,0 +1,9 @@
+<div class="mt-10">
+  <form [formGroup]="applyForm" (ngSubmit)="submitHabit()">
+    <div>
+      <label class="block" for="title">Titre de l'habitude</label>
+      <input type="text" id="title" formControlName="title" placeholder="titre de l'habitude" />
+    </div>
+    <button type="submit">Créer l'habitude</button>
+  </form>
+</div>
