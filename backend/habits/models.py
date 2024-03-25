@@ -22,9 +22,6 @@ class Workspace(models.Model):
 class HabitPeriod(models.Model):
     title = models.DateField()
     
-    def __str__(self):
-        return self.title
-
 # HabitFrequency model
 class HabitFrequency(models.Model):
     periodicity = models.CharField(max_length=100)

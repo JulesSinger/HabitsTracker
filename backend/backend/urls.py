@@ -1,7 +1,7 @@
-from django.urls import path
-from habitsApi import views
+from django.urls import include, path
+from django.contrib import admin
 
 urlpatterns = [
-    path('habits/', views.habitApi),
-    path('habits/<int:pk>/', views.habitApi),
+    path('habits/', include("habits.urls")),
+    path("admin/", admin.site.urls),
 ] 

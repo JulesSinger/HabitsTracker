@@ -1,8 +1,31 @@
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
-from habitsApi.serializers import *
-from habitsApi import *
+from habits.serializers import *
+from habits import *
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404
+from django.urls import reverse
+from django.views import generic
+
+def index(request):
+    habits = Habit.objects.all()
+    return HttpResponse(habits)
+
+def detail(request, habit_id):
+    habit = get_object_or_404(Habit, pk=habit_id)
+    return HttpResponse(habit)
+
+def create(request):
+    print(request)
+    habit_data = request.POST
+    habit = Habit(title=habit_data['title'], color=habit_data['color'])
+    habit.save()
+    return JsonResponse("Habitude créée avec succès.", safe=False)
+    
+
+def records(request, habit_id):
+    return HttpResponse("You're looking at the records of habit %s." % habit_id)
 
 @csrf_exempt
 def habitApi(request,id=0):

@@ -60,9 +60,9 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=100)),
                 ('color', models.CharField(max_length=100)),
                 ('icon', models.CharField(max_length=100)),
-                ('frequency', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='habits', to='habitsApi.habitfrequency')),
-                ('period', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='habits', to='habitsApi.habitperiod')),
-                ('timer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='habits', to='habitsApi.habittimer')),
+                ('frequency', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='habits', to='habits.habitfrequency')),
+                ('period', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='habits', to='habits.habitperiod')),
+                ('timer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='habits', to='habits.habittimer')),
             ],
         ),
         migrations.CreateModel(
@@ -71,7 +71,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('date', models.DateField()),
                 ('done', models.BooleanField()),
-                ('habit', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='records', to='habitsApi.habit')),
+                ('habit', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='records', to='habits.habit')),
             ],
         ),
         migrations.CreateModel(
@@ -80,12 +80,12 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=100)),
                 ('color', models.CharField(max_length=100)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='workspaces', to='habitsApi.user')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='workspaces', to='habits.user')),
             ],
         ),
         migrations.AddField(
             model_name='habit',
             name='workspace',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='habits', to='habitsApi.workspace'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='habits', to='habits.workspace'),
         ),
     ]
